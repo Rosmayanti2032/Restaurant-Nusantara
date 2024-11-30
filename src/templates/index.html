@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Jelajahi kekayaan kuliner Indonesia, Dapatkan inspirasi untuk petualangan kuliner Anda selanjutnya!" />
+  <meta name="theme-color" content="#e67d1a" />
+
+  <link rel="apple-touch-icon" href="/icons/icon-192x192.png" />
+  <link rel="icon" href="./favicon.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="manifest" href="./app.webmanifest" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+  <title>Restaurant Nusantara</title>
+</head>
+
+<body>
+  <a href="#mainContent" class="skip-link">Skip to content</a>
+
+  <header class="app-Navbar">
+    <div class="app-Navbar-container">
+      <div class="app-Navbar__menu">
+        <button id="hamburgerButton" aria-label="navigation menu">☰</button>
+      </div>
+      <div class="app-Navbar__brand">
+        <img src="heros/restoo.jpg" alt="Resto" class="app-Navbar__logo" />
+        <h1>Restaurant Nusantara</h1>
+      </div>
+      <nav id="navigationDrawer" class="app-Navbar__navigation">
+        <ul>
+          <li><a href="#/">Home</a></li>
+          <li><a href="#/favorite">Favorite</a></li>
+          <li>
+            <a href="https://www.linkedin.com/in/ros-mayanti" target="_blank" rel="noopener">
+              About Us
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <section class="hero" aria-label="hero banner">
+    <div class="carousel">
+      <div class="carousel-slides">
+        <div class="slide fade">
+          <picture>
+            <source media="(max-width: 600px)" srcset="heros/hero-image_4-small.jpg" />
+            <img src="heros/hero-image_4-large.jpg" alt="Hero 2 " />
+          </picture>
+          <div class="hero_inner">
+            <h1 class="hero_title">Welcome to Restaurant Nusantara</h1>
+            <p class="hero_desc">
+              Nikmati Kelezatan Nusantara Bersama Keluarga Tercinta
+            </p>
+          </div>
+        </div>
+        <div class="slide fade">
+          <picture>
+            <source media="(max-width: 600px)" srcset="heros/pecel-small.jpg" />
+            <img src="heros/pecel-large.jpg" alt="Hero 2 " />
+          </picture>
+          <div class="hero_inner">
+            <h1 class="hero_title">Unlock New Experiences!</h1>
+            <p class="hero_desc">Banyak Rasa yang Perlu Kamu Jelajahi</p>
+          </div>
+        </div>
+        <div class="slide fade">
+          <picture>
+            <source media="(max-width: 600px)" srcset="heros/rerempah-small.jpg" />
+            <img src="heros/rerempah-large.jpg" alt="Hero 2 " />
+          </picture>
+          <div class="hero_inner">
+            <h1 class="hero_title">Discover Every Flavor</h1>
+            <p class="hero_desc">Temukan Sensasi Baru di Setiap Pilihan!</p>
+          </div>
+        </div>
+
+        <div class="dots">
+          <span class="dot" onclick="currentSlide(1)"></span>
+          <span class="dot" onclick="currentSlide(2)"></span>
+          <span class="dot" onclick="currentSlide(3)"></span>
+        </div>
+      </div>
+      <a class="prev" onclick="plusSlides(-1)">❮</a>
+      <a class="next" onclick="plusSlides(1)">❯</a>
+    </div>
+  </section>
+  <main id="mainContent" tabindex="0"></main>
+  <App-footer brand="Restaurant Nusantara Rosmayanti" copyright="©" year="2024"></App-footer>
+  <script>
+    let slideIndex = 1;
+    showSlides(slideIndex);
+
+    // Next/previous controls
+    function plusSlides(n) {
+      showSlides((slideIndex += n));
+    }
+
+    // Thumbnail image controls
+    function currentSlide(n) {
+      showSlides((slideIndex = n));
+    }
+
+    function showSlides(n) {
+      let i;
+      let slides = document.getElementsByClassName("slide");
+      let dots = document.getElementsByClassName("dot");
+
+      if (n > slides.length) {
+        slideIndex = 1;
+      }
+      if (n < 1) {
+        slideIndex = slides.length;
+      }
+
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+
+      slides[slideIndex - 1].style.display = "block";
+      dots[slideIndex - 1].className += " active";
+    }
+
+    // Auto slide
+    setInterval(function () {
+      plusSlides(1);
+    }, 5000); // Change slide every 5 seconds
+  </script>
+</body>
+
+</html>
